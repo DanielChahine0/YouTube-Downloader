@@ -1,17 +1,18 @@
 import tkinter
-import customtkinter # type: ignore
-from pytube import YouTube # type: ignore
+import customtkinter
+from pytube import YouTube
 
 
 def startDownload():
-    try:
-        ytLink = link.get()
-        ytObject = YouTube(ytLink)
-        video = ytObject.streams.get_highest_resolution()
-        video.download()
-    except:
-        print("Something wrong happened")
-    print("Download Completed")
+    ytLink = link.get()
+    print("got link")
+    ytObject = YouTube(ytLink)
+    print("got youtube object")
+    video = ytObject.streams.get_highest_resolution()
+    print("got video")        
+    video.download()
+    print("got downloaded")
+
 
 # System settings
 customtkinter.set_appearance_mode("System")
@@ -33,7 +34,7 @@ link.pack()
 
 # Download Button
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
-download.pack(padx = 10, pady=10)
+download.pack(padx=10, pady=10)
 
 # Running the app as a loop
 app.mainloop()
