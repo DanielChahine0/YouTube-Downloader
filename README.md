@@ -1,2 +1,2 @@
 # YouTube-Downloader
-A modern python GUI that takes a YouTube link and downloads the video as a mp4 file
+A modern python GUI that takes a YouTube link and downloads the video as an mp4 file
