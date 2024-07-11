@@ -5,14 +5,11 @@ from pytube import YouTube
 
 def startDownload():
     ytLink = link.get()
-    print("got link")
     ytObject = YouTube(ytLink)
-    print("got youtube object")
+    # video = ytObject.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
     video = ytObject.streams.get_highest_resolution()
-    print("got video")        
-    video.download()
-    print("got downloaded")
-
+    PATH = r"C:\Users\chahi\Downloads"
+    video.download(PATH,'videoFilename','mp4')
 
 # System settings
 customtkinter.set_appearance_mode("System")
@@ -25,7 +22,7 @@ app.title("Youtube downloader")
 
 # Adding UI elements
 title = customtkinter.CTkLabel(app, text="Insert a youtube link")
-title.pack(padx=10,pady=10)
+title.pack(padx=10, pady=10)
 
 # Link input
 url_var = tkinter.StringVar()
@@ -34,7 +31,7 @@ link.pack()
 
 # Download Button
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
-download.pack(padx=10, pady=10)
+download.pack(padx=10,pady=10)
 
 # Running the app as a loop
 app.mainloop()
