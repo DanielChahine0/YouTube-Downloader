@@ -1,6 +1,6 @@
 import tkinter
-import customtkinter
-from pytube import YouTube
+import customtkinter # type: ignore
+from pytube import YouTube # type: ignore
 
 
 def startDownload():
