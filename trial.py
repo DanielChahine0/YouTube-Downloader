@@ -1,4 +1,4 @@
-from pytube import YouTube
+from pytube import YouTube # type: ignore
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
